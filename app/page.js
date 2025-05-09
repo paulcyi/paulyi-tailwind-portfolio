@@ -1,103 +1,126 @@
-import Image from "next/image";
+'use client';
+
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
+import { Moon, Sun } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  useEffect(() => setMounted(true), []);
+
+  const handleResumeClick = () => {
+    console.log('Résumé clicked'); // Swap this with Plausible/Amplitude/GA event if needed
+  };
+
+  return (
+    <main className="min-h-screen px-6 py-10 md:px-12">
+      {mounted && (
+        <div className="fixed top-4 right-4 z-50">
+          <button
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            className="w-10 h-10 flex items-center justify-center rounded border hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            aria-label="Toggle Dark Mode"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={resolvedTheme}
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                {resolvedTheme === 'dark' ? (
+                  <Sun className="w-5 h-5 text-yellow-400" />
+                ) : (
+                  <Moon className="w-5 h-5 text-gray-800" />
+                )}
+              </motion.div>
+            </AnimatePresence>
+          </button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      )}
+
+      <div className="max-w-3xl mx-auto">
+        <header className="pt-10 mb-12">
+          <h1 className="text-4xl font-bold">Paul Yi</h1>
+          <p className="text-xl text-gray-700 dark:text-gray-300 mt-2">
+            Veteran • AI/ML Engineer in Training • DevOps Practitioner
+          </p>
+          <p className="text-md text-gray-600 dark:text-gray-400 mt-1">
+            Building secure tools for healthcare and defense
+          </p>
+        </header>
+
+        <motion.section
+          className="mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <h2 className="text-2xl font-semibold mb-2">Current Projects</h2>
+          <div className="mb-6">
+            <h3 className="text-xl font-semibold">CheckMyMeds</h3>
+            <p className="text-gray-800 dark:text-gray-200">
+              An AI-powered medication interaction and adherence assistant.
+            </p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+              <strong>Stack:</strong> Python • NLP • Drug API Integration
+            </p>
+            <a
+              href="https://github.com/paulcyi/drug-interaction-checker"
+              className="text-blue-600 hover:underline text-sm mt-1 inline-block"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View on GitHub
+            </a>
+          </div>
+        </motion.section>
+
+        <motion.section
+          className="mb-10"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.5 }}
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <h2 className="text-2xl font-semibold mb-2">Mission</h2>
+          <p className="text-gray-800 dark:text-gray-200 italic">
+            I’m building a real, practical skill set in AI/ML and cloud engineering—
+            starting from scratch and putting in the work. This site tracks what I’ve built, what I’ve learned, and where I’m going.
+          </p>
+        </motion.section>
+
+        <motion.section
+          className="mb-10"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
         >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <h2 className="text-2xl font-semibold mb-2">Contact</h2>
+          <ul className="text-gray-800 dark:text-gray-200 space-y-1">
+            <li>
+              LinkedIn: <a href="https://linkedin.com/in/paulcyi" className="text-blue-600 hover:underline">paulcyi</a>
+            </li>
+            <li>
+              Email: <a href="mailto:hi@paulyi.dev" className="text-blue-600 hover:underline">hi@paulyi.dev</a>
+            </li>
+          </ul>
+          <div className="mt-4">
+            <a
+              href="/paulyi-resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleResumeClick}
+              className="inline-block px-4 py-2 border rounded text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
+            >
+              Résumé (PDF)
+            </a>
+          </div>
+        </motion.section>
+      </div>
+    </main>
   );
 }
