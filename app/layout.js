@@ -7,7 +7,34 @@ const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono'
 
 export const metadata = {
   title: 'Paul Yi – Cloud & AI Engineer',
-  description: 'Veteran-built portfolio in Next.js + Tailwind CSS',
+  description: 'U.S. Army veteran building secure AI tools for healthcare and defense.',
+  keywords: [
+    'Paul Yi', 'AI Engineer', 'Cloud Engineer', 'DevOps', 'Veteran',
+    'Healthcare AI', 'Next.js Portfolio', 'Terraform', 'AWS', 'Python', 'Resume', 'Projects'
+  ],
+  openGraph: {
+    title: 'Paul Yi – Cloud & AI Engineer',
+    description: 'U.S. Army veteran building secure AI tools for healthcare and defense.',
+    url: 'https://paulyi.dev',
+    siteName: 'Paul Yi Portfolio',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: '/og.png',
+        width: 1200,
+        height: 630,
+        alt: 'Paul Yi – Cloud & AI Engineer',
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@yipaul_',
+    title: 'Paul Yi – Cloud & AI Engineer',
+    description: 'U.S. Army veteran building secure AI tools for healthcare and defense.',
+    images: ['/og.png']
+  },
 };
 
 export default function RootLayout({ children }) {
