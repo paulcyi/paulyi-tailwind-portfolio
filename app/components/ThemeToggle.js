@@ -16,7 +16,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-      className="w-9 h-9 flex items-center justify-center rounded border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+      className="w-9 h-9 flex items-center justify-center rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-black hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
       aria-label="Toggle Dark Mode"
     >
       <AnimatePresence mode="wait" initial={false}>
@@ -30,10 +30,7 @@ export default function ThemeToggle() {
           {resolvedTheme === 'dark' ? (
             <Sun className="w-5 h-5 text-white hover:text-blue-500 transition-colors" />
           ) : (
-            <Moon
-              className="w-5 h-5 text-white hover:text-blue-500 transition-all"
-              style={{ filter: 'drop-shadow(0 0 2px black)' }}
-            />
+            <Moon className="w-5 h-5 text-gray-800 hover:text-blue-500 transition-colors" />
           )}
         </motion.div>
       </AnimatePresence>
