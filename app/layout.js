@@ -21,7 +21,7 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: '/og.png',
+        url: '/og-v2.png',
         width: 1200,
         height: 630,
         alt: 'Paul Yi – Cloud & AI Engineer',
@@ -33,7 +33,7 @@ export const metadata = {
     site: '@yipaul_',
     title: 'Paul Yi – Cloud & AI Engineer',
     description: 'U.S. Army veteran building secure AI tools for healthcare and defense.',
-    images: ['/og.png']
+    images: ['/og-v2.png']
   },
 };
 
