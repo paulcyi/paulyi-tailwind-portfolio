@@ -30,7 +30,7 @@ export default function ThemeToggle() {
           {resolvedTheme === 'dark' ? (
             <Sun className="w-5 h-5 text-white hover:text-blue-500 transition-colors" />
           ) : (
-            <Moon className="w-5 h-5 text-white hover:text-blue-500 transition-colors" />
+            <Moon className="w-5 h-5 text-white drop-shadow-sm hover:text-blue-500 transition-all" />
           )}
         </motion.div>
       </AnimatePresence>
