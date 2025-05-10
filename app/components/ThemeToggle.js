@@ -32,9 +32,8 @@ export default function ThemeToggle() {
           ) : (
             <Moon
               className="w-5 h-5 text-white hover:text-blue-500 transition-all"
-              style={{ filter: 'drop-shadow(0 0 1px black)' }}
+              style={{ filter: 'drop-shadow(0 0 2px black)' }}
             />
-
           )}
         </motion.div>
       </AnimatePresence>
