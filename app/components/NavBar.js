@@ -32,6 +32,7 @@ export default function NavBar() {
             <NavLink href="/">Home</NavLink>
             <NavLink href="/projects">Projects</NavLink>
             <NavLink href="/blog">Blog</NavLink>
+            <NavLink href="/resume">Résumé</NavLink>
           </div>
           <div className="ml-auto">
             <ThemeToggle />
