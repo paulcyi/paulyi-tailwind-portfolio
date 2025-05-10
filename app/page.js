@@ -54,6 +54,11 @@ export default function Home() {
           </p>
         </header>
 
+        <nav className="flex gap-6 text-sm text-blue-600 mt-2">
+          <a href="/blog" className="hover:underline">Blog</a>
+          <a href="/projects" className="hover:underline">Projects</a>
+        </nav>
+
         <motion.section
           className="mb-10"
           initial={{ opacity: 0, y: 20 }}
