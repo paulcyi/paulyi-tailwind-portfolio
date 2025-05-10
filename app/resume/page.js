@@ -8,8 +8,9 @@ export default function ResumePage() {
     <main className="min-h-screen px-6 md:px-12 pt-10 max-w-3xl mx-auto">
       <h1 className="text-3xl font-bold mb-4">Résumé</h1>
       <p className="text-gray-700 dark:text-gray-300 mb-6">
-        Here's a quick preview of my résumé. You can also download it directly below.
+        Here&#39;s a quick preview of my résumé. You can also download it directly below.
       </p>
+
 
       <iframe
         src="/paul-yi-resume.pdf"
