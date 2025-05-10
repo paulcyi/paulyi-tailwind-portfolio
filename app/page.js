@@ -4,6 +4,7 @@ import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import { Moon, Sun } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 
 export default function Home() {
   const { theme, setTheme, resolvedTheme } = useTheme();
@@ -55,8 +56,8 @@ export default function Home() {
         </header>
 
         <nav className="flex gap-6 text-sm text-blue-600 mt-2">
-          <a href="/blog" className="hover:underline">Blog</a>
-          <a href="/projects" className="hover:underline">Projects</a>
+          <Link href="/blog" className="hover:underline">Blog</Link>
+          <Link href="/projects" className="hover:underline">Projects</Link>
         </nav>
 
         <motion.section
