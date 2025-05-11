@@ -13,6 +13,7 @@ export const metadata = {
     'Paul Yi', 'AI Engineer', 'Cloud Engineer', 'DevOps', 'Veteran',
     'Healthcare AI', 'Next.js Portfolio', 'Terraform', 'AWS', 'Python', 'Resume', 'Projects'
   ],
+  metadataBase: new URL('https://paulyi.dev'),
   openGraph: {
     title: 'Paul Yi – Cloud & AI Engineer',
     description: 'U.S. Army veteran building secure AI tools for healthcare and defense.',
@@ -36,6 +37,12 @@ export const metadata = {
     description: 'U.S. Army veteran building secure AI tools for healthcare and defense.',
     images: ['/og-v2.png']
   },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-32x32.png',
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({ children }) {
