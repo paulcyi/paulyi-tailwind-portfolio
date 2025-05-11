@@ -84,7 +84,7 @@ export default function Home() {
           </ul>
           <div className="mt-4">
             <a
-              href="/paulyi-resume.pdf"
+              href="/paul-yi-resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-4 py-2 border rounded text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
